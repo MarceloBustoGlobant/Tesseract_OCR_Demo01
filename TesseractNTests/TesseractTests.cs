@@ -61,15 +61,14 @@ namespace TesseractNTests
         {
             //A
             string result = string.Empty;
-            string TestImagePath = _FilesDirectoryImages + "phototest.XxX"; // Sin imagen
             var tProces = new Base64();
 
             //A
             result = tProces.ImageToBase64(TestImagePath, ImageFormat.Jpeg);
 
             //A
-            Assert.IsTrue(result.Length < 0);
-
+            Assert.IsTrue(result.Length > 0);
+            //Assert.AreSame(result, @"^[a-zA-Z0-9\+/]*={0,3}$");
         }
 
 
