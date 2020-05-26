@@ -83,7 +83,7 @@ namespace TesseractNTests
             result = tProces.ImageToBase64(TestImagePath, ImageFormat.Jpeg);
 
             //A
-            Assert.IsTrue(result.Length > 0);
+            Assert.AreNotEqual(result.GetType(), typeof(Bitmap));
 
         }
 
