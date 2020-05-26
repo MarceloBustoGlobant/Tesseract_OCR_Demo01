@@ -1,6 +1,7 @@
 using ClassLibrary;
 using NUnit.Framework;
 using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace TesseractNTests
@@ -91,17 +92,15 @@ namespace TesseractNTests
         public void sendString_Base64_ReturnImage()
         {
             //A
-            string result = string.Empty;
-            string imgBase64 = string.Empty;
+            Image result;
             var tProces = new Base64();
-
+            string imgBase64 = tProces.ImageToBase64(TestImagePath, ImageFormat.Jpeg);
 
             //A
             result = tProces.Base64ToImage(imgBase64, 0);   // ver el tema de ImageFormat.Jpeg
 
             //A
-            Assert.IsTrue(result.Length <= 0);
-
+            Assert.AreEqual(result.GetType(), typeof(Bitmap));
 
         }
     }
